@@ -11,5 +11,7 @@
 @interface MyCustomPlugin : CDVPlugin
 
 - (void) getCurrentDate:(CDVInvokedUrlCommand *)command;
+- (void) onActionBindListener:(CDVInvokedUrlCommand *)command;
+- (void) reportNativeEvent:(NSDictionary*)eventData;
 
 @end

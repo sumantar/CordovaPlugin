@@ -9,6 +9,7 @@
 <!--	<script src="jquery.mobile-1.3.2.js"></script>-->
 	<script src="cordova.js"></script>
 	<script src="plugins/MyCustomPlugin.js"></script>
+    <script src="plugins/NativeEventsListener.js"></script>
 	<script>
         // Wait for device API libraries to load
         //
@@ -20,6 +21,7 @@
         //
         function onDeviceReady() {
             // Now safe to use device APIs
+            bindListener(NativeEventsListener.onReceivedEvent);
         }
 
          // alert dialog dismissed

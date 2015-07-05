@@ -26,8 +26,27 @@
 //
 
 #import "MainViewController.h"
+#import "MyCustomPlugin.h"
 
 @implementation MainViewController
+- (IBAction)onButtonClicked:(id)sender {
+    NSLog(@"Native Button Clicked");
+    NSMutableDictionary* allPlugins = self.pluginObjects;
+    NSLog(@"allPlugins: %@", allPlugins);
+
+    MyCustomPlugin *bridge = [self.pluginObjects objectForKey:@"MyCustomPlugin"];
+    if (bridge) {
+        NSLog(@"Plugin found");
+        //NativeEvent-1
+        NSDictionary *eventData = [NSDictionary dictionaryWithObjectsAndKeys:
+                                   @"Button-1", @"eventType",
+                                   nil];
+        [bridge reportNativeEvent:eventData];
+    }
+    else {
+        NSLog(@"Plugin Not Found");
+    }
+}
 
 - (id)initWithNibName:(NSString*)nibNameOrNil bundle:(NSBundle*)nibBundleOrNil
 {
@@ -75,6 +94,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self registerPlugin:[[MyCustomPlugin alloc] initWithWebView:self.webView] withClassName:NSStringFromClass([MyCustomPlugin class])];
 }
 
 - (void)viewDidUnload
