@@ -51,22 +51,22 @@ Edit `www/js/index.js` and add the following code inside `onDeviceReady`
 ```
 Install iOS platform
 
-cordova platform add ios
+    cordova platform add ios
 
 ==================================================
 
 Some Useful Cordova Commands
 
-cordova create CordovaPluginSample com.example.cordova.plugin.sample CordovaPluginSample
+    cordova create CordovaPluginSample com.example.cordova.plugin.sample CordovaPluginSample
 
-cordova platform add ios
+    cordova platform add ios
 
-cordova platform add android
+    cordova platform add android
 
 
-cordova build ios
+    cordova build ios
 
-cordova build ios —device
+    cordova build ios —device
 
 
 
