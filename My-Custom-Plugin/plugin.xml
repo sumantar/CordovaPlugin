@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    id="my-custom-plugin" version="0.0.1">
+    <name>My Custom Plugin</name>
+    
+    <description>My Custom Plugin</description>
+    
+    <license>Apache 2.0</license>
+    
+    <keywords>cordova,custom plugin</keywords>
+    
+    <js-module src="www/myplugin.js" name="myplugin">
+        <clobbers target="myplugin" />
+    </js-module>
+   
+    <platform name="ios">
+        
+        <config-file target="config.xml" parent="/*">
+            <feature name="MyPlugin">
+                <param name="ios-package" value="CDVMyPlugin"/>
+            </feature>
+        </config-file>
+        
+        <header-file src="src/ios/CDVMyPlugin.h" />
+        <source-file src="src/ios/CDVMyPlugin.m" />
+    
+    </platform>
+
+</plugin>
